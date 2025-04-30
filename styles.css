@@ -1,68 +1,130 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================================
+   RESET GENERAL
+   ============================================================ */
+   * {
+    margin: 0;                /* Elimina el margen externo por defecto de todos los elementos */
+    padding: 0;               /* Elimina el relleno interno por defecto de todos los elementos */
+    box-sizing: border-box;  /* Incluye el padding y el borde dentro del tamaño total del elemento */
 }
 
+/* ============================================================
+   CUERPO DEL DOCUMENTO
+   ============================================================ */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;     /* Define la fuente principal del sitio */
+    display: flex;                      /* Usa Flexbox para organizar el contenido */
+    flex-direction: column;            /* Organiza el contenido en una sola columna */
+    align-items: center;               /* Centra horizontalmente los hijos del body */
+    background-color: #f4f4f4;         /* Color de fondo gris claro */
 }
 
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
 header {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 20px;      /* Espacio superior para separar el encabezado del borde superior */
+    text-align: center;    /* Centra el texto horizontalmente */
 }
 
+/* ============================================================
+   CONTENEDOR DE FILTROS
+   ============================================================ */
 .filters {
-    display: flex;
-    gap: 10px;
-    margin: 20px;
+    display: flex;         /* Establece un contenedor flexible para los filtros */
+    gap: 10px;             /* Espacio entre el input y el dropdown */
+    margin: 20px;          /* Margen exterior para separación respecto a otros elementos */
 }
 
+/* ============================================================
+   CAMPO DE BÚSQUEDA
+   ============================================================ */
 #searchInput {
-    padding: 10px;
-    width: 200px;
+    padding: 10px;         /* Espacio interno para mejorar la experiencia al escribir */
+    width: 200px;          /* Anchura fija del campo de búsqueda */
 }
 
+/* ============================================================
+   DESPLEGABLE DE USUARIOS
+   ============================================================ */
 #userDropdown {
-    padding: 10px;
+    padding: 10px;         /* Espacio interno del select para hacerlo más legible y fácil de usar */
 }
 
+/* ============================================================
+   CONTENEDOR DE PUBLICACIONES
+   ============================================================ */
 #postsContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    width: 80%;
-    max-width: 800px;
+    display: grid;                         /* Usa CSS Grid para organizar los posts */
+    grid-template-columns: 1fr;           /* Una sola columna por defecto (en móviles o pantallas pequeñas) */
+    gap: 15px;                             /* Espacio entre publicaciones */
+    width: 80%;                            /* Ancho relativo al contenedor padre (body) */
+    max-width: 800px;                      /* Ancho máximo para no desbordarse en pantallas grandes */
 }
 
+/* ============================================================
+   INDICADOR DE CARGA
+   ============================================================ */
 #loading {
-    text-align: center;
-    font-size: 18px;
-    color: #007bff;
+    text-align: center;       /* Centra el texto horizontalmente */
+    font-size: 18px;          /* Tamaño de fuente legible */
+    color: #007bff;           /* Azul brillante, para destacar */
 }
 
+/* ============================================================
+   ESTILO INDIVIDUAL DE CADA PUBLICACIÓN
+   ============================================================ */
 .post {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;                           /* Fondo blanco para resaltar cada post */
+    padding: 15px;                                     /* Relleno interno para espacio del contenido */
+    border-radius: 5px;                                /* Esquinas ligeramente redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);           /* Sombra suave para dar profundidad */
 }
 
+/* ============================================================
+   TITULO DE CADA POST
+   ============================================================ */
 .post h3 {
-    margin-bottom: 10px;
+    margin-bottom: 10px;     /* Separación entre el título y el párrafo */
 }
 
+/* ============================================================
+   TEXTO DE CADA POST
+   ============================================================ */
 .post p {
-    font-size: 16px;
+    font-size: 16px;         /* Tamaño de fuente estándar y legible */
 }
 
+/* ============================================================
+   ESTILOS BASE PARA LOS FILTROS (DUPLICADO PERO COMPLEMENTARIO)
+   ============================================================ */
+.filters {
+    display: flex;               /* Flexbox para disposición horizontal */
+    flex-direction: row;         /* Elementos alineados horizontalmente por defecto */
+    gap: 10px;                   /* Espacio entre elementos */
+    margin-bottom: 20px;         /* Espacio inferior respecto a otros bloques */
+}
+
+.filters input,
+.filters select {
+    padding: 8px;                /* Espacio interno para inputs y selects */
+    font-size: 16px;             /* Tamaño de fuente uniforme */
+    flex: 1;                     /* Ocupan el mismo ancho proporcionalmente */
+}
+
+/* ============================================================
+   MEDIA QUERY PARA PANTALLAS PEQUEÑAS (RESPONSIVE)
+   ============================================================ */
+@media (max-width: 600px) {
+    .filters {
+        flex-direction: column; /* En pantallas pequeñas, apilar los filtros verticalmente */
+    }
+}
+
+/* ============================================================
+   MEDIA QUERY PARA PANTALLAS MEDIANAS Y GRANDES
+   ============================================================ */
 @media (min-width: 600px) {
     #postsContainer {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;   /* Dos columnas para mostrar más contenido horizontalmente */
     }
 }
